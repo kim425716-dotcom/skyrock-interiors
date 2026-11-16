@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    # Set DEPLOYPATH to your public_html or subdomain folder in cPanel
+    - export DEPLOYPATH=$(pwd -P | sed 's|/repositories/.*||')/public_html
+    - /bin/cp -R dist/* $DEPLOYPATH 2>/dev/null || /bin/cp -rf dist/* $DEPLOYPATH
